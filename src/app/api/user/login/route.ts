@@ -1,11 +1,13 @@
 import jwt from "jsonwebtoken";
 
+
 import { Database, DB, readDB } from "@lib/DB";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (request: NextRequest) => {
   const body = await request.json();
   const { username, password } = body;
+
   readDB();
 
   const user = (<Database>DB).users.find(
