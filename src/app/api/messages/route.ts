@@ -33,6 +33,7 @@ export const GET = async (request: NextRequest) => {
   
 };
 
+
 export const POST = async (request: NextRequest) => {
   const body = await request.json();
   const {roomId, messageText} = body;
