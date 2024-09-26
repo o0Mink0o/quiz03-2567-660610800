@@ -20,7 +20,15 @@ if (!user) {
     { status: 400 }
   );
 }
-  const token = "Replace this with token creation";
+
+
+  const secret = process.env.JWT_SECRET ||"This is my special secret";
+  const token = jwt.sign(
+    { role: user.role }, 
+    secret, 
+    { expiresIn: "8h" });
+
+  
 
   return NextResponse.json({ ok: true, token });
 };
